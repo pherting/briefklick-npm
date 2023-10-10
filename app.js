@@ -48,6 +48,28 @@ const briefklick = class{
         });
     }
 
+    createDocumentPDF(sender, receiver, pdf, extraPage) {
+        var bodyFormData = new FormData();
+        bodyFormData.append('apikey', this.apikey);
+        bodyFormData.append('sender', sender);
+        bodyFormData.append('receiver', receiver);
+        bodyFormData.append('pdf', pdf);
+        bodyFormData.append('extraPage', extraPage);
+
+        return axios({
+            method: "post",
+            url: apiURL + "create",
+            data: bodyFormData,
+            headers: { "Content-Type": "multipart/form-data" },
+        })
+        .then(function (response) {
+            return response.data;
+        })
+        .catch(function (response) {
+            return response.data;
+        });
+    }
+
     previewDocument(documentId) {
         var bodyFormData = new FormData();
         bodyFormData.append('apikey', this.apikey);

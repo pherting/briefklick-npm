@@ -14,6 +14,7 @@ bk.getBalance().then((res) => {
 });
 
 
+// For HTML to PDF use this function for pdf file use createDocumentPDF
 // sender: string of your adress like: Max Musterman, Musterstr. 12, 13371 Musterstadt
 // receiver: string of valid german adress escaped with \n like: Max Musterman\nMusterstr. 12\n13371 Musterstadt
 // html: string of you html text
@@ -21,6 +22,18 @@ bk.getBalance().then((res) => {
 bk.createDocument(sender, receiver, html, extraPage).then((res) => {
     console.log(res); // return documentId and page counts 
 });
+
+
+
+// For PDF you can read your PDF file and convert it to base64 string to call this function
+// sender: string of your adress like: Max Musterman, Musterstr. 12, 13371 Musterstadt
+// receiver: string of valid german adress escaped with \n like: Max Musterman\nMusterstr. 12\n13371 Musterstadt
+// html: string of you html text
+// extrapage: 0 for no extrapage, 1 for extrapage with adress details on front of your html
+bk.createDocumentPDF(sender, receiver, pdf, extraPage).then((res) => {
+    console.log(res); // return documentId and page counts 
+});
+
 
 
 // documentId:  result of createDocument
