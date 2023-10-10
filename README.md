@@ -3,7 +3,9 @@ NodeJS NPM Package for BriefKlick API
 
 # how to use
 
-const briefklick = require('briefklick');
+```javascript
+
+const briefklick = require('briefklick-npm');
 
 const bk = new briefklick("YOURAPIKEYHERE");
 
@@ -44,3 +46,4 @@ bk.sendDocument(documentId, mode, color).then((res) => {
 bk.statusDocument(orderId).then((res) => {
     console.log(res); // return status, tracking and created state
 });
+```
